@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #edcdae;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #543310;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #AF8F6F;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            border-color: #543310;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            margin: 10px 0 5px 0;
+            font-size: 1.5em;
+            color: #543310;
+        }
+
+        .card p {
+            color: #5b3918;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Card Grid</h1>
+        <div class="card-grid" id="cardGrid">
+        </div>
+    </div>
+
+    <script>
+        const cards = [
+            {
+                title: 'Card 1',
+                image: 'https://i.pinimg.com/564x/a1/53/9c/a1539c552d11de82b4191213da6c994f.jpg',
+                link: 'https://en.wikipedia.org/wiki/Flower',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 2',
+                image: 'https://i.pinimg.com/236x/02/ae/b5/02aeb5fbda8af700c86f1cd23428f982.jpg',
+                link: 'https://en.wikipedia.org/wiki/Flower_(disambiguation)',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 3',
+                image: 'https://i.pinimg.com/236x/33/c6/01/33c6016ee172212291ee73a2d1067782.jpg',
+                link: 'https://en.wikipedia.org/wiki/Marc-Andr%C3%A9_Fleury',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 4',
+                image: 'https://i.pinimg.com/564x/2b/c5/1b/2bc51bedd7c40a78647655ebca148d56.jpg',
+                link: 'https://en.wikipedia.org/wiki/Videotron_Centre',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 5',
+                image: 'https://i.pinimg.com/474x/70/a0/69/70a069078ff21dde9cc9d53a02d0d514.jpg',
+                link: 'https://en.wikipedia.org/wiki/Quebec_City',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 6',
+                image: 'https://i.pinimg.com/236x/87/85/15/878515f016f23a6f95012d8ec87da01a.jpg',
+                link: 'https://en.wikipedia.org/wiki/Communaut%C3%A9_m%C3%A9tropolitaine_de_Qu%C3%A9bec',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 7',
+                image: 'https://i.pinimg.com/236x/b1/e9/1c/b1e91cd7cce90d03623471209f2660d0.jpg',
+                link: 'https://en.wikipedia.org/wiki/Sepal',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 8',
+                image: 'https://i.pinimg.com/736x/22/f7/06/22f7060f9814ed56d39e5659d621b849.jpg',
+                link: 'https://en.wikipedia.org/wiki/No%C3%ABl_Martin_Joseph_de_Necker',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 9',
+                image: 'https://i.pinimg.com/736x/c2/31/5c/c2315cb50c0c122346b32040da3cb7ae.jpg',
+                link: 'https://en.wikipedia.org/wiki/Flowering_plant',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 10',
+                image: 'https://i.pinimg.com/236x/99/c3/98/99c39819e0ccf7457d4824ef417c408c.jpg',
+                link: 'https://en.wikipedia.org/wiki/Aggregate_fruit',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 11',
+                image: 'https://i.pinimg.com/236x/b2/90/72/b29072084649b1cbf0ee6ec17863da57.jpg',
+                link: 'https://en.wikipedia.org/wiki/John_Lindley',
+                description: 'Click to view details'
+            },
+            {
+                title: 'Card 12',
+                image: 'https://i.pinimg.com/236x/a5/a0/1c/a5a01cc7c12ab8079ce10941b8d15fb9.jpg',
+                link: 'https://en.wikipedia.org/wiki/London',
+                description: 'Click to view details'
+            }
+        ];
+
+        const cardGrid = document.getElementById('cardGrid');
+
+        cards.forEach(card => {
+            const cardElement = document.createElement('a');
+            cardElement.href = card.link;
+            cardElement.target = '_blank';
+            cardElement.className = 'card';
+
+            cardElement.innerHTML = `
+                <img src="${card.image}" alt="${card.title} Image">
+                <h2>${card.title}</h2>
+                <p>${card.description}</p>
+            `;
+
+            cardGrid.appendChild(cardElement);
+        });
+    </script>
+</body>
+</html>
